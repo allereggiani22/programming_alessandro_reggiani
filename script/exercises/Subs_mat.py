@@ -23,8 +23,7 @@ def freq_comb(seq1,seq2):
             freq_pair[seq1[n]+seq2[n]]=freq_pair.get(seq1[n]+seq2[n],1)+1
         for key in freq_pair:
             freq_pair[key]=log((freq_pair[key]/float(len(seq1)))/(fn[key[0]]*fn[key[1]]))
-        for i in nucl:
-            l=[]
+        return freq_pair
     else:
         return "Sequences are different in lenght!"
 
