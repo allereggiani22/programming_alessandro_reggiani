@@ -1,0 +1,10 @@
+The scoring scheme is used to give a score to the different possible alignments of two sequences, proceding pair by pair and then summing up the scores to obtain an overall score for each alignment. The idea behind this is that, for each pair, the score is calculated as the log-odds, log(Pab/(Pa*Pb)), which is the ratio of two different events: the substitution happened "in a meaningful way" or the substitution happed by chance. If the score is grater than 1, it's more likely that the substitution didn't happen by chance.
+If two sequences have a high score, it means that they're similar. From this, we coculd deduce that they could have a similar function, or even that they have a common ancestor and so that they are homologs.
+PAMs and BLOSUMs are substitution matrices to compare protein sequences. They are derived in differnt ways:
+
+- PAMs (Point Accepted Mutations) are built on sequence alignments of evolutionary related sequences, so the only mutations taken into consideration are the ones selected by 	natural selection (e.g. lethal mutation or fit-worsening mutations are NOT taken into consideration). The higher the PAM number, the farther the ligned sequences could be on evolutionary terms.
+
+- BLOSUMS are derived from observed alignments of different protein families, with proteins within each family havin a certain sequence identity.
+
+We can use these matrices to give a score to each pair of residues in our sequences to determine the overall score or/and  to evaluate wether it's better to introduce a gap rather than to allow a mismatch.
+In Needleman and Wunsch algorithm, for instance, sustitution matrices are used at this stage: for each couple, we evaluate where the maximum score derives from: from introducing a gap in sequence 1, or in sequence 2 or from the match/mismatch given a certain score from the substitution matrix.
