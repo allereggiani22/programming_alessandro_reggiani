@@ -55,9 +55,6 @@ def score_aln(s1,s2,d,mat):
             elif F[j][i]==D:
                 traceback[j][i]="D"
 
-    print F
-    print traceback
-
     max_row=max(F[N-1])
     max_col=0
     for j in range(1,N):
