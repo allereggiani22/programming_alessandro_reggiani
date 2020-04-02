@@ -67,12 +67,12 @@ def global_align(s1,s2,d,mat):
     aln_seq1=""
     aln_seq2=""
 
-    while imax>0 or jmax>0:                 #if I move up, I put the gap in seq2
+    while imax>0 and jmax>0:                 #if I move up, I put the gap in seq1
         if traceback[jmax][imax]=="U":
             aln_seq1+="-"
             aln_seq2+=s2[jmax-1]
             jmax-=1
-        elif traceback[jmax][imax]=="L":    #if I move left, I put the gap in seq1
+        elif traceback[jmax][imax]=="L":    #if I move left, I put the gap in seq2
             aln_seq2+="-"
             aln_seq1+=s1[imax-1]
             imax-=1
