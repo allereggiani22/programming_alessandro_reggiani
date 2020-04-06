@@ -25,17 +25,17 @@ def mat_to_dict(filepath):
         for j in range(len(lists[0])):
             if lists[0][i]+lists[0][j] not in dict:
                 dict[lists[0][i]+lists[0][j]]=dict[lists[0][j]+lists[0][i]]
+    matrix.close()
     return dict
 
 s1=raw_input("Insert your first DNA sequence here: ")
 s2=raw_input("Insert your second DNA sequence here: ")
-M=len(s1)+1
-N=len(s2)+1
-
 
 def score_aln(s1,s2,d,mat):
     F=[]
     traceback=[]
+    M=len(s1)+1
+    N=len(s2)+1
     for j in range(N): #generatio and filling in with 0 of the two matrices
         F.append([])
         traceback.append([])
@@ -87,8 +87,7 @@ def score_aln(s1,s2,d,mat):
             imax-=1
             jmax-=1
     results=(aln_seq1[::-1],aln_seq2[::-1],"Score: "+str(best))
-    output=print_tuple(results)
-    return output
+    return results
 
 def print_tuple(tuple):
     for i in range(len(tuple)):
@@ -99,4 +98,4 @@ def print_tuple(tuple):
 
 
 matrix=mat_to_dict("./nucl_mat_triangular.txt")
-score_aln(s1,s2,2,matrix)
+print_tuple(score_aln(s1,s2,2,matrix))

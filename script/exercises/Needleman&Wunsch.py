@@ -87,16 +87,12 @@ def global_align(s1,s2,d,mat):
     max_score="Score: "+ str(F[N-1][M-1])
 
     results=(seq1,seq2,max_score)
-    output=print_tuple(results)
-
-    return output
+    return results
 
 def print_tuple(tuple):
     """This fuction prints line by line the content of a tuple"""
-    i=0
-    while i<=len(tuple)-1:
+    for i in range(len(tuple)):
         print tuple[i]
-        i+=1
 
 mat=mat_to_dict("nucl_matrix.txt")
-global_align(s1,s2,2,mat)
+print_tuple(global_align(s1,s2,2,mat))

@@ -85,8 +85,7 @@ def aln_score(s1,s2,d,mat):
             imax-=1
             jmax-=1
     results=(aln_seq1[::-1],aln_seq2[::-1],"Score: "+str(best))
-    output=print_tuple(results)
-    return output
+    return results
 
 def print_tuple(tuple):
     for i in range(len(tuple)):
@@ -94,4 +93,4 @@ def print_tuple(tuple):
 
 
 matrix=mat_to_dict("PAM250_square.txt")
-aln_score(s1,s2,2,matrix)
+print_tuple(aln_score(s1,s2,2,matrix))
