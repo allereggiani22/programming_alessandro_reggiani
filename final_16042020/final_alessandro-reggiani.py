@@ -18,8 +18,6 @@ Invoke the 3 functions
 #This program is thought for a Python 2.7 interpreter
 
 from input_data import *
-a="GAATTC"
-b="ACCA"  #I used these for manual calculation, but I saved the program for running with seq1 and seq2 from the module
 
 
 def score_traceback(s1,s2,matrix,gap):
